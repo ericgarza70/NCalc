@@ -251,7 +251,8 @@ INTEGER
 	;
 
 FLOAT 
-	:	DIGIT* '.' DIGIT+ E?
+	:	DIGIT+ '.' DIGIT* E?
+	|	'.' DIGIT+ E?
 	|	DIGIT+ E
 	;
 
@@ -266,7 +267,8 @@ DATETIME
 NAME	:	'[' (options {greedy=false;} : ~(']')*) ']'
 	;
 	
-E	:	('E'|'e') ('+'|'-')? DIGIT+ 
+fragment E
+	:	('E'|'e') ('+'|'-')? DIGIT+ 
 	;	
 	
 fragment LETTER
